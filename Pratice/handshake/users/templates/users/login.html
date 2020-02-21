@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+    {% block content %}
+        <div class = "container pt-5" id="loginpage">
+            <div class="text-center border border-info rounded m-5 pt-2 py-4">
+                <div class = "text-center py-3">
+                    <h2>Login</h2>
+                </div>
+                {% for i in form %}
+                    <form method="POST">
+                        {% csrf_token %}   
+                        <div class = "form-group">
+                            {{ i }}
+                        </div>
+                {% endfor %}
+                        <div class = "row">
+                            <div class = "col md-lg-8 text-right">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class = "col md-lg-4 text-left">
+                                <a href="{% url 'password_reset' %}">Forgot Password</a>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+        <div>
+    {% endblock content %}
